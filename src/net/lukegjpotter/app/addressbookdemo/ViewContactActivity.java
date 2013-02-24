@@ -37,7 +37,7 @@ public class ViewContactActivity extends Activity {
 		setContentView(R.layout.activity_view_contact);
 		
 		// Get the TextViews
-		InitialiseViews();
+		initialiseViews();
 		
 		// Get the selected contact's rotID.
 		Bundle extras = getIntent().getExtras();
@@ -47,7 +47,7 @@ public class ViewContactActivity extends Activity {
 	/**
 	 * Function to initialise the TextViews from the XML layout.
 	 */
-	private void InitialiseViews() {
+	private void initialiseViews() {
 		
 		nameTextView   = (TextView) findViewById(R.id.nameTextView);
 		phoneTextView  = (TextView) findViewById(R.id.phoneTextView);

@@ -48,4 +48,16 @@ public class DatabaseConnector {
 		
 	}
 
+	public void insertContact(String name, String phone, String email,
+			String street, String city) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void updateContact(long rowID, String name, String phone,
+			String email, String street, String city) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
