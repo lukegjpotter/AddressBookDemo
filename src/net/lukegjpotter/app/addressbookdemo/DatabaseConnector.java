@@ -40,9 +40,10 @@ public class DatabaseConnector {
 	/**
 	 * Open the connection to the database.
 	 */
-	public void open() {
+	public void open() throws SQLException {
 		
-		
+		// Creates or Opens a database for reading/writing
+		database = databaseOpenHelper.getWritableDatabase();
 	}
 
 	public Cursor getAllContacts() {
