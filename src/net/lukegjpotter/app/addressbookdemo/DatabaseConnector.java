@@ -1,5 +1,6 @@
 package net.lukegjpotter.app.addressbookdemo;
 
+import android.content.Context;
 import android.database.Cursor;
 
 /**
@@ -18,7 +19,7 @@ public class DatabaseConnector {
 	 * @param addressBookActivity 
 	 * 
 	 */
-	public DatabaseConnector(AddressBookActivity addressBookActivity) {
+	public DatabaseConnector(Context context) {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -33,6 +34,16 @@ public class DatabaseConnector {
 	}
 
 	public void close() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Cursor getOneContact(Long rowId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void deleteContact(Long rowId) {
 		// TODO Auto-generated method stub
 		
 	}
