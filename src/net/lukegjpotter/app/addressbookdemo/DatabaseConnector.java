@@ -51,9 +51,15 @@ public class DatabaseConnector {
 		return null;
 	}
 
+	/**
+	 * Close the database connection.
+	 */
 	public void close() {
-		// TODO Auto-generated method stub
 		
+		if (database != null) {
+			
+			database.close();
+		}
 	}
 
 	public Cursor getOneContact(Long rowId) {
