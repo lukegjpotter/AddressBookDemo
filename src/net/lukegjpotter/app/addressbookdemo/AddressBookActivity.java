@@ -15,6 +15,7 @@ import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -54,7 +55,6 @@ public class AddressBookActivity extends ListActivity {
 		new GetContactsTask().execute((Object[]) null);
 	}
 	
-
 	@Override
 	protected void onStop() {
 
@@ -69,7 +69,6 @@ public class AddressBookActivity extends ListActivity {
 		super.onStop();
 	}
 
-	
 	/**
 	 * A nested class that extends ASyncTask that performs a database query outside the GUI thread.
 	 */
@@ -95,8 +94,13 @@ public class AddressBookActivity extends ListActivity {
 		}
 	}
 	
+	/**
+	 * Create the Activity's menu from a menu resource XML file.
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		
+		super.onCreateOptionsMenu(menu);
 		
 		// Inflate the menu; this adds items to the action bar if it is present. <- Cool Story Brah!
 		getMenuInflater().inflate(R.menu.activity_address_book, menu);
@@ -104,6 +108,19 @@ public class AddressBookActivity extends ListActivity {
 		return true;
 	}
 	
+	/**
+	 * Handle choice from options menu.
+	 */
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		
+		// Create a new intent to launch the AddEditContact Activity.
+		Intent addNewContact = new Intent(AddressBookActivity.this, AddEditContactActivity.class);
+		startActivity(addNewContact);
+		
+		return super.onOptionsItemSelected(item);
+	}
+
 	/**
 	 * An Event Listener that responds to the user touching a contact's name in the ListView.
 	 */
