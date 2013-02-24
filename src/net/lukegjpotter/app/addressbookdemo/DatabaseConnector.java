@@ -1,8 +1,5 @@
 package net.lukegjpotter.app.addressbookdemo;
 
-import android.content.Context;
-import android.database.Cursor;
-
 /**
  * 
  * DataaseConnector.java
@@ -13,18 +10,38 @@ import android.database.Cursor;
  * This class provides and easy connection and creation of UserContacts database.
  *
  */
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+
 public class DatabaseConnector {
 
+	private static final String DATABASE_NAME = "UserContacts";
+	private SQLiteDatabase database;               // Database Object.
+	private DatabaseOpenHelper databaseOpenHelper; // Database Helper.
+	
 	/**
+	 * Constructor for DatabaseConnector.
+	 * 
 	 * @param addressBookActivity 
 	 * 
 	 */
 	public DatabaseConnector(Context context) {
-		// TODO Auto-generated constructor stub
+		
+		// Create a new DatabaseOpenHelper
+		databaseOpenHelper = new DatabaseOpenHelper(context, DATABASE_NAME, null, 1);
 	}
 
+	/**
+	 * Open the connection to the database.
+	 */
 	public void open() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -60,4 +77,25 @@ public class DatabaseConnector {
 		
 	}
 
+	private class DatabaseOpenHelper extends SQLiteOpenHelper {
+
+		public DatabaseOpenHelper(Context context, String name,
+				CursorFactory factory, int version) {
+			super(context, name, factory, version);
+			// TODO Auto-generated constructor stub
+		}
+
+		@Override
+		public void onCreate(SQLiteDatabase db) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
 }
