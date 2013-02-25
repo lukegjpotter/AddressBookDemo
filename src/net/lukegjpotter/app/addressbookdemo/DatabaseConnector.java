@@ -142,24 +142,55 @@ public class DatabaseConnector {
 		close();
 	}
 
+	/**
+	 * Private nested class DatabaseOpenHelper.
+	 * 
+	 * @author lukepotter
+	 * @date 25/Feb/2013
+	 *
+	 */
 	private class DatabaseOpenHelper extends SQLiteOpenHelper {
 
+		/**
+		 * Public constructor for DatabaseOpenHelper.
+		 * 
+		 * @param context
+		 * @param name
+		 * @param factory
+		 * @param version
+		 */
 		public DatabaseOpenHelper(Context context, String name,
 				CursorFactory factory, int version) {
+			
 			super(context, name, factory, version);
-			// TODO Auto-generated constructor stub
 		}
 
+		/**
+		 * Creates the contacts table when the database is created.
+		 */
 		@Override
 		public void onCreate(SQLiteDatabase db) {
-			// TODO Auto-generated method stub
 			
+			// Query to create a new table named contacts.
+			String createQuery = "CREATE TABLE " + contactsTable
+					+ "(_id integer primary key autoincrement, "
+					+ "name TEXT, "
+					+ "email TEXT, "
+					+ "phone TEXT, "
+					+ "street TEXT, "
+					+ "city TEXT);";
+			
+			// Execute the create table query.
+			db.execSQL(createQuery);
 		}
 
+		/**
+		 * A stub method for the upgrade of the database.
+		 */
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			// TODO Auto-generated method stub
 			
+			// Do nothing.
 		}
 		
 	}
