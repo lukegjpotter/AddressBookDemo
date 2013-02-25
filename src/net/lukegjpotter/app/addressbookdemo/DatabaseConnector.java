@@ -22,9 +22,9 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 public class DatabaseConnector {
 
 	private static final String DATABASE_NAME = "UserContacts";
-	private final String contactsTable = "contacts";
-	private SQLiteDatabase database;               // Database Object.
-	private DatabaseOpenHelper databaseOpenHelper; // Database Helper.
+	private final String contactsTable = "contacts"; // Specify a table name
+	private SQLiteDatabase database;                 // Database Object.
+	private DatabaseOpenHelper databaseOpenHelper;   // Database Helper.
 	
 	/**
 	 * Constructor for DatabaseConnector.
