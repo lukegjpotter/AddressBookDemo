@@ -46,9 +46,14 @@ public class DatabaseConnector {
 		database = databaseOpenHelper.getWritableDatabase();
 	}
 
+	/**
+	 * Return a Cursor with all the contact information in the database.
+	 * 
+	 * @return databaseCursor
+	 */
 	public Cursor getAllContacts() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return database.query("contacts", new String[] {"_id", "name"}, null, null, null, null, "name");
 	}
 
 	/**
