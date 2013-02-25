@@ -72,10 +72,28 @@ public class DatabaseConnector {
 		
 	}
 
+	/**
+	 * Inserts a new contact in the database.
+	 * 
+	 * @param name
+	 * @param phone
+	 * @param email
+	 * @param street
+	 * @param city
+	 */
 	public void insertContact(String name, String phone, String email,
 			String street, String city) {
-		// TODO Auto-generated method stub
 		
+		ContentValues newContact = new ContentValues();
+		newContact.put("name", name);
+		newContact.put("phone", phone);
+		newContact.put("email", email);
+		newContact.put("street", street);
+		newContact.put("city", city);
+		
+		open();
+		database.insert("contacts", null, newContact);
+		close();
 	}
 
 	public void updateContact(long rowID, String name, String phone,
