@@ -89,8 +89,14 @@ public class AddressBookActivity extends ListActivity {
 		@Override
 		protected void onPostExecute(Cursor result) {
 			
-			contactAdapter.changeCursor(result); // Set the adaptor's cursor.
-			dbConn.close();
+			
+			try {
+				contactAdapter.changeCursor(result); // Set the adaptor's cursor.
+				dbConn.close();
+			} catch (NullPointerException e) {
+				// TODO Auto-generated catch block
+				//e.printStackTrace();
+			}
 		}
 	}
 	
