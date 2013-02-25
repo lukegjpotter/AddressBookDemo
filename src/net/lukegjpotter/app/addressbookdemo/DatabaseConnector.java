@@ -80,9 +80,17 @@ public class DatabaseConnector {
 		return database.query(contactsTable, null, "_id=" + rowId, null, null, null, null);
 	}
 
+	/**
+	 * Delete a contact from the database.
+	 * The contact is specified by the given ID.
+	 * 
+	 * @param rowId
+	 */
 	public void deleteContact(Long rowId) {
-		// TODO Auto-generated method stub
 		
+		open();
+		database.delete(contactsTable, "_id=" + rowId, null);
+		close();
 	}
 
 	/**
