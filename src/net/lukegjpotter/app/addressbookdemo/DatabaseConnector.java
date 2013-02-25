@@ -68,9 +68,16 @@ public class DatabaseConnector {
 		}
 	}
 
+	/**
+	 * Get a Cursor containing all the information belonging to one contact.
+	 * The contact is specified by the given ID.
+	 * 
+	 * @param rowId
+	 * @return contactCursor
+	 */
 	public Cursor getOneContact(Long rowId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return database.query(contactsTable, null, "_id=" + rowId, null, null, null, null);
 	}
 
 	public void deleteContact(Long rowId) {
