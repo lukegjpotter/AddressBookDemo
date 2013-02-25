@@ -96,10 +96,29 @@ public class DatabaseConnector {
 		close();
 	}
 
+	/**
+	 * Updates a contact in the database.
+	 * 
+	 * @param rowID
+	 * @param name
+	 * @param phone
+	 * @param email
+	 * @param street
+	 * @param city
+	 */
 	public void updateContact(long rowID, String name, String phone,
 			String email, String street, String city) {
-		// TODO Auto-generated method stub
 		
+		ContentValues editContact = new ContentValues();
+		editContact.put("name", name);
+		editContact.put("phone", phone);
+		editContact.put("email", email);
+		editContact.put("street", street);
+		editContact.put("city", city);
+		
+		open();
+		database.update("contacts", editContact, "_id=" + rowID, null);
+		close();
 	}
 
 	private class DatabaseOpenHelper extends SQLiteOpenHelper {
