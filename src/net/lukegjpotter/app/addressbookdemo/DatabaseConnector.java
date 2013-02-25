@@ -22,6 +22,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 public class DatabaseConnector {
 
 	private static final String DATABASE_NAME = "UserContacts";
+	private final String contactsTable = "contacts";
 	private SQLiteDatabase database;               // Database Object.
 	private DatabaseOpenHelper databaseOpenHelper; // Database Helper.
 	
@@ -53,7 +54,7 @@ public class DatabaseConnector {
 	 */
 	public Cursor getAllContacts() {
 
-		return database.query("contacts", new String[] {"_id", "name"}, null, null, null, null, "name");
+		return database.query(contactsTable, new String[] {"_id", "name"}, null, null, null, null, "name");
 	}
 
 	/**
@@ -97,7 +98,7 @@ public class DatabaseConnector {
 		newContact.put("city", city);
 		
 		open();
-		database.insert("contacts", null, newContact);
+		database.insert(contactsTable, null, newContact);
 		close();
 	}
 
@@ -122,7 +123,7 @@ public class DatabaseConnector {
 		editContact.put("city", city);
 		
 		open();
-		database.update("contacts", editContact, "_id=" + rowID, null);
+		database.update(contactsTable, editContact, "_id=" + rowID, null);
 		close();
 	}
 
